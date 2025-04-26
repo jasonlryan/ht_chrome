@@ -60,7 +60,7 @@ To create an account:
 
 ## Premium Features
 
-Consider upgrading to HomeTruth Premium (£7.99/month or £79.99/year) for:
+Consider upgrading to HomeTruth Premium (£4.99/month or £49.99/year) for:
 
 - Detailed property reports
 - Historical price data

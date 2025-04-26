@@ -1,4 +1,4 @@
-# HomeTruth UK User Guide
+# HomeTruth User Guide
 
 ## Introduction
 
@@ -186,3 +186,7 @@ HomeTruth takes your privacy seriously:
 - Website: [hometruth.uk](https://hometruth.uk)
 - Email: support@hometruth.uk
 - Support hours: Monday-Friday, 9am-5pm GMT
+
+### How much does HomeTruth cost?
+
+HomeTruth offers a free tier with essential information and a Premium subscription for £4.99/month or £49.99/year, providing comprehensive property insights.

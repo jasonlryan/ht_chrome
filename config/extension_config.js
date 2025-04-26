@@ -148,8 +148,8 @@ const EXTENSION_CONFIG = {
     premium: {
       name: "Premium",
       price: {
-        monthly: 7.99,
-        annual: 79.99,
+        monthly: 4.99,
+        annual: 49.99,
       },
       features: [
         "All Free features",

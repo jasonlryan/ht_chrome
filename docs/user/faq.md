@@ -1,4 +1,4 @@
-# HomeTruth UK - Frequently Asked Questions
+# HomeTruth - Frequently Asked Questions
 
 ## General Questions
 

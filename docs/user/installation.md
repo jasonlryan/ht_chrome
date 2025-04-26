@@ -1,4 +1,4 @@
-# HomeTruth UK - Installation Guide
+# HomeTruth - Installation Guide
 
 ## System Requirements
 
@@ -11,14 +11,14 @@
 
 ### Method 1: Chrome Web Store (Recommended)
 
-1. Visit the [HomeTruth UK Chrome Extension](https://chrome.google.com/webstore/detail/hometruth-uk/abcdefghijklmnopqrstuvwxyz) page in the Chrome Web Store
+1. Visit the [HomeTruth Chrome Extension](https://chrome.google.com/webstore/detail/hometruth/abcdefghijklmnopqrstuvwxyz) page in the Chrome Web Store
 2. Click the **Add to Chrome** button
 3. Review the permissions and click **Add extension**
 4. The HomeTruth icon will appear in your browser toolbar
 
 ### Method 2: Microsoft Edge Add-on Store
 
-1. Visit the [HomeTruth UK Edge Extension](https://microsoftedge.microsoft.com/addons/detail/hometruth-uk/abcdefghijklmnopqrstuvwxyz) page in the Edge Add-on store
+1. Visit the [HomeTruth Edge Extension](https://microsoftedge.microsoft.com/addons/detail/hometruth/abcdefghijklmnopqrstuvwxyz) page in the Edge Add-on store
 2. Click the **Get** button
 3. Review the permissions and click **Add extension**
 4. The HomeTruth icon will appear in your browser toolbar
@@ -147,4 +147,4 @@ If you encounter any issues during installation:
 
 ---
 
-Thank you for installing HomeTruth UK! We're committed to helping you make better property decisions with transparent, data-driven insights.
+Thank you for installing HomeTruth! We're committed to helping you make better property decisions with transparent, data-driven insights.
