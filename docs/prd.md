@@ -1,3 +1,267 @@
+# HomeTruth: Product Requirements Document (PRD)
+
+## 1. Product Overview
+
+HomeTruth is a browser extension that uses AI to analyse property listings in real-time, helping UK home buyers make more informed decisions by providing objective analysis of property listings directly on property portal websites.
+
+### 1.1 Vision Statement
+
+To empower home buyers with transparency and data-driven insights, reducing information asymmetry in the property market.
+
+### 1.2 Target Audience
+
+- First-time home buyers in the UK
+- Property investors assessing multiple properties
+- Anyone who feels overwhelmed by property listings and wants objective analysis
+- Users who want to quickly identify potential issues or misleading information in listings
+
+### 1.3 Supported Platforms
+
+- Chrome browser extension (initial release)
+- Edge browser extension (subsequent release)
+
+### 1.4 Supported Property Portals
+
+- Rightmove.co.uk
+- Zoopla.co.uk
+- OnTheMarket.com
+- PrimeLocation.com
+
+## 2. Feature Requirements
+
+### 2.1 Core Features
+
+#### 2.1.1 Property Listing Detection
+
+The extension must automatically detect when a user is viewing a property listing page on a supported property portal.
+
+#### 2.1.2 Data Extraction
+
+The extension must extract relevant property data from the listing page, including:
+
+- Property description
+- Listed price
+- Property images
+- Property address
+- Property features (bedrooms, bathrooms, square footage)
+- Property type (house, flat, etc.)
+- Property history (if available)
+
+#### 2.1.3 AI Analysis
+
+The backend must analyse the extracted data to provide the following insights:
+
+**Fact-Checking**
+
+- Identify claims made in the property description
+- Assess the veracity of these claims where possible
+- Flag potentially misleading statements
+- Provide confidence levels for each assessment
+
+**Photo Analysis**
+
+- Detect wide-angle lens distortion
+- Identify virtual staging/edited images
+- Flag potential photographic tricks that misrepresent the property
+
+**Price Analysis**
+
+- Compare listing price to historical prices for the property
+- Compare to similar properties in the area
+- Provide an assessment of the price relative to market value
+- Flag potential pricing strategies (under-pricing to generate interest, etc.)
+
+**Location Analysis**
+
+- Verify amenities mentioned in the listing
+- Assess neighbourhood factors (schools, transport, shopping)
+- Identify potential location risks (flood zones, crime rates, noise)
+
+#### 2.1.4 Trust Score
+
+Generate an overall "Trust Score" for each listing based on:
+
+- Accuracy of listing description
+- Transparency of photos
+- Price fairness
+- Comprehensive disclosure of location factors
+- Overall listing transparency
+
+#### 2.1.5 UI Integration
+
+The extension must display analysis results directly on the listing page:
+
+- Integrate with the property portal's UI
+- Show an overall Trust Score prominently
+- Group findings by category (Facts, Photos, Price, Location)
+- Allow users to expand/collapse detailed findings
+- Provide a feedback mechanism for analysis accuracy
+
+### 2.2 User Account Features
+
+#### 2.2.1 User Management
+
+- Account creation and authentication
+- User profile management
+- Email notifications for saved properties
+
+#### 2.2.2 Property History
+
+- Save analysed properties
+- Compare multiple properties
+- Track changes to listings over time
+
+#### 2.2.3 Premium Features
+
+- Set up a tiered subscription model
+- Implement billing and payment processing
+- Provide enhanced features for premium users:
+  - More detailed analysis
+  - Unlimited saved properties
+  - Priority processing
+  - Additional data sources
+
+## 3. Technical Requirements
+
+### 3.1 Extension Architecture
+
+- Manifest V3 compliance
+- Content scripts for each supported property portal
+- Background service worker
+- Secure communication with backend API
+
+### 3.2 Backend Infrastructure
+
+- RESTful API for handling extension requests
+- Secure authentication system
+- Integration with OpenAI's API
+- Database for user accounts and property histories
+- Integration with external data sources (property records, location data)
+
+### 3.3 AI Integration
+
+- Implement function calling with OpenAI's API
+- Design effective prompts for consistent analysis
+- Implement retry logic and fallbacks
+- Cache results to reduce API costs
+- Monitor and improve AI response quality
+
+### 3.4 Data Security & Privacy
+
+- GDPR compliance for UK/EU users
+- Secure handling of user data
+- Clear privacy policy
+- Data minimisation practices
+- User consent for data collection
+
+## 4. User Experience Requirements
+
+### 4.1 Performance
+
+- Analysis results should display within 5 seconds of page load
+- Extension should not noticeably slow down the browser
+- Fallback UI should appear if analysis takes longer than expected
+
+### 4.2 Design
+
+- Clean, modern interface that complements property portal designs
+- Clear visual hierarchy for analysis results
+- Intuitive icons and color-coding for quick understanding
+- Responsive design that works across viewport sizes
+- Accessibility compliance (WCAG 2.1 AA)
+
+### 4.3 Content
+
+- Clear explanations of analysis results
+- Helpful tooltips for technical terms
+- Actionable insights rather than just data
+- Professional, neutral tone
+
+## 5. Business Requirements
+
+### 5.1 Monetisation Strategy
+
+- Freemium model with basic analysis for free
+- Premium subscription for enhanced features
+- Potential for referral partnerships (mortgage brokers, surveyors)
+
+### 5.2 Marketing Requirements
+
+- Chrome Web Store listing optimisation
+- Website landing page
+- Product demo video
+- Social media assets
+- Email marketing integration
+
+### 5.3 Analytics
+
+- Track extension installations
+- Monitor feature usage
+- Collect anonymous analysis data for improvements
+- Measure conversion to premium accounts
+
+## 6. Legal & Compliance
+
+### 6.1 Terms of Service
+
+- Clear terms for extension use
+- Limitations of AI analysis
+- User responsibilities
+
+### 6.2 Privacy Policy
+
+- Data collection practices
+- User data handling and storage
+- Third-party data sharing
+- User rights under GDPR
+
+### 6.3 Compliance
+
+- Ensure compliance with Google's extension policies
+- Maintain GDPR compliance
+- Ensure accessibility standards are met
+
+## 7. Launch Requirements
+
+### 7.1 Alpha Release
+
+- Core functionality working on one property portal
+- Limited user testing with internal team
+- Basic analysis features implemented
+
+### 7.2 Beta Release
+
+- Support for all major property portals
+- Expanded analysis features
+- Limited external user testing
+- User account system implemented
+
+### 7.3 Public Launch
+
+- Full feature set
+- Performance optimisation
+- Bug fixes from beta feedback
+- Marketing materials and website ready
+- Premium subscription tier available
+
+## 8. Future Considerations
+
+### 8.1 Potential Expansions
+
+- Support for additional property portals
+- Mobile app version
+- Firefox extension
+- Integration with property portal APIs (if available)
+- White-label version for estate agents
+
+### 8.2 Advanced Features
+
+- AI-powered property recommendations
+- Market trend analysis
+- Investment potential scoring
+- Mortgage affordability integration
+- Environmental impact assessment
+
 # HomeTruth Chrome Extension & GPT Plug-in – Product Requirements Document (PRD)
 
 _Version 0.9 – 25 April 2025_
@@ -6,9 +270,9 @@ _Version 0.9 – 25 April 2025_
 
 ## 1 Overview
 
-HomeTruth will ship a **one-click “Ask-the-Chatbot” button** that appears on every Rightmove, Zoopla, OnTheMarket and PrimeLocation listing in the UK property market.  
+HomeTruth will ship a **one-click "Ask-the-Chatbot" button** that appears on every Rightmove, Zoopla, OnTheMarket and PrimeLocation listing in the UK property market.  
 The button opens a conversational UI powered by an OpenAI function-calling backend that answers detailed questions about the listing and the surrounding area.  
-The surface is a Manifest V3 Chrome/Edge extension; the intelligence lives in a hosted API that also exposes an `ai-plugin.json` so the same capabilities can be used inside a custom GPT (“HomeTruth Advisor”).
+The surface is a Manifest V3 Chrome/Edge extension; the intelligence lives in a hosted API that also exposes an `ai-plugin.json` so the same capabilities can be used inside a custom GPT ("HomeTruth Advisor").
 
 ## 2 Problem & opportunity
 
@@ -32,7 +296,7 @@ The surface is a Manifest V3 Chrome/Edge extension; the intelligence lives in a 
 - **Mortgage broker (MB Maya)** – installs to guide clients during Zoom calls.
 
 **Typical flow (FTB)**  
-Portal → sees “Ask HomeTruth” → clicks → modal opens → asks “Can I knock through the kitchen wall?” → answer + CTA to share/save.
+Portal → sees "Ask HomeTruth" → clicks → modal opens → asks "Can I knock through the kitchen wall?" → answer + CTA to share/save.
 
 ## 5 Requirements
 
@@ -44,7 +308,7 @@ Portal → sees “Ask HomeTruth” → clicks → modal opens → asks “Can I
 | FR2 | Background `service_worker.js` listens for `postMessage`, packages URL + extracted JSON-LD, and calls backend over HTTPS |
 | FR3 | Use `chrome.offscreen` to perform network calls when popup is closed                                                     |
 | FR4 | Authenticate requests with `chrome.identity` OAuth token when user opts in                                               |
-| FR5 | Display answer in modal with thumbs-up/down feedback and “Share” deep-link                                               |
+| FR5 | Display answer in modal with thumbs-up/down feedback and "Share" deep-link                                               |
 | FR6 | Surface conversational history in extension popup                                                                        |
 
 ### 5.2 Non-functional

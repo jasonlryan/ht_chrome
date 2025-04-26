@@ -1,125 +1,188 @@
-# HomeTruth User Guide
+# HomeTruth UK User Guide
 
-## What HomeTruth Does
+## Introduction
 
-HomeTruth is a browser extension designed to empower home buyers. When a user visits a property listing page on major real estate websites (like Zillow, Redfin, Realtor.com, Trulia), the extension automatically activates.
+Welcome to HomeTruth, your trusted companion for making informed property decisions in the UK. This extension adds valuable insights directly to UK property listing websites, helping you uncover the truth behind property listings.
 
-- **Data Extraction**: It reads key information from the webpage: the property description, listed price, photos, address, features (bedrooms, bathrooms, area), etc.
-- **Backend Analysis**: This extracted data is securely sent to the HomeTruth backend API.
-- **AI & Data Processing**: The backend uses AI models (like OpenAI's) and potentially other external data sources to:
-  - **Fact-Check**: Analyze claims made in the description for accuracy or potential exaggeration (e.g., "newly renovated," "quiet street").
-  - **Analyze Photos**: Detect common photographic tricks like excessive wide-angle lens use or virtual staging that might misrepresent the space.
-  - **Assess Pricing**: Compare the listing price against historical price changes for that property and recent sales of comparable nearby properties (comps).
-  - **Evaluate Location**: Check nearby amenities (transit, shopping, schools, restaurants) and assess potential risks (flood zones, wildfire areas, crime rates, noise levels).
-- **Display Insights**: The results of this analysis are sent back to the browser extension.
-- **UI Injection**: The extension then displays these findings directly on the listing page, often as an overlay or an added section. This includes things like a "Trust Score," identified red flags, fact-check results, photo analysis notes, price comparisons, and location scores/warnings.
-- **User Account (Optional)**: Users can potentially create accounts via a separate User Portal to manage preferences, view analysis history, and access premium features or subscription tiers.
+## Getting Started
 
-In short: It acts as an AI-powered assistant that automatically analyzes real estate listings you browse, highlighting potential issues and providing objective data to help you see beyond the marketing hype.
+### Installation
 
-## Chrome Web Store Materials
+1. Install the HomeTruth extension from the Chrome Web Store
+2. Click the HomeTruth icon in your browser to activate it
+3. Create a free account or log in to your existing account
+4. Start browsing UK property sites like Rightmove, Zoopla, OnTheMarket, and PrimeLocation
 
-### Extension Name
+### Compatibility
 
-HomeTruth
+HomeTruth works with the following UK property portals:
 
-### Tagline (Short Description - max 132 chars)
+- Rightmove
+- Zoopla
+- OnTheMarket
+- PrimeLocation
 
-AI-powered analysis for real estate listings. See beyond the hype, uncover facts, and buy your next home with confidence.
+## Key Features
 
-### Detailed Description
+### Trust Score
 
-Tired of navigating misleading property descriptions, suspiciously perfect photos, and uncertainty about fair market value? Buying a home is one of life's biggest decisions, and HomeTruth is here to bring clarity and confidence to your search.
+Every property receives a HomeTruth Trust Score from 1-100, helping you quickly assess a property's overall value and reliability. The score is calculated based on:
 
-HomeTruth is a smart browser extension that automatically analyzes real estate listings on popular sites like Zillow, Redfin, Realtor.com, and Trulia. As you browse, HomeTruth works silently in the background, using advanced AI and data analysis to give you the unbiased insights you need.
+- Price accuracy (compared to similar properties and historical data)
+- Property condition and maintenance history
+- Potential issues (flood risk, subsidence, etc.)
+- Local area quality factors
+- Leasehold details (where applicable)
 
-#### Key Features:
+### Property Insights
 
-- 🔎 **AI-Powered Fact-Checking**: We scrutinize the listing description, identifying potentially misleading claims, exaggerations, or omissions and assessing their likely accuracy.
-- 📸 **Photo Reality Check**: Detects common photographic techniques like extreme wide-angle lenses or virtual staging that can make rooms appear larger or different than they are.
-- 💰 **Intelligent Price Analysis**: Get insights into the property's price history, see how it compares to similar recently sold homes nearby, and understand if the asking price aligns with market trends.
-- 📍 **Comprehensive Location Insights**: Verify local amenities, check walkability and transit scores, and assess potential risks like flood zones, wildfire areas, crime rates, and noise pollution levels.
-- 📊 **Overall Trust Score**: Get an at-a-glance summary of the listing's transparency and potential red flags based on our comprehensive analysis.
-- ✨ **Seamless Integration**: Insights are displayed directly on the listing pages you're already browsing – no need to copy/paste or switch tabs.
+HomeTruth displays critical information directly on property listings:
 
-#### How It Works:
+- **Price History**: See previous listing prices and sold prices from Land Registry data
+- **Council Tax**: View the property's Council Tax band and estimated annual costs
+- **Leasehold Details**: For leasehold properties, see lease length, ground rent, and service charges
+- **Flood Risk**: Assess flood risk data from the Environment Agency
+- **Transport**: View nearby transport options and commute times
+- **Schools**: See Ofsted ratings for nearby schools and catchment area information
+- **Local Amenities**: Discover shops, restaurants, and services in the area
+- **Planning History**: View previous planning applications and permissions
+- **Crime Statistics**: Assess local safety with data from UK Crime Statistics
 
-1. Install the HomeTruth extension.
-2. Browse listings on supported sites (Zillow, Redfin, Realtor.com, Trulia).
-3. Look for the HomeTruth analysis panel appearing automatically on the page.
-4. Explore the insights, understand the findings, and make more informed decisions!
+### Property Comparison
 
-Stop guessing and start analyzing. Install HomeTruth today and bring transparency to your real estate journey!
+Compare properties side-by-side to make better decisions:
 
-#### (Optional additions for the store):
+1. Save properties to your dashboard
+2. Select properties to compare
+3. View a detailed comparison of features, price, location factors, and more
 
-- **Privacy Focus**: We only analyze listing data when activated and handle your information securely. See our Privacy Policy for details.
-- **Supported Sites**: Currently supports Zillow.com, Redfin.com, Realtor.com, and Trulia.com in the US (or specify regions). More sites coming soon!
+### Stamp Duty Calculator
 
-## User Guide
+Calculate Stamp Duty Land Tax (SDLT) based on:
 
-### Welcome to HomeTruth!
+- Property price
+- First-time buyer status
+- Additional property status (second home)
+- Regional variations (England, Wales, Scotland, Northern Ireland)
 
-HomeTruth helps you see the real story behind online real estate listings. By automatically analyzing property details, photos, pricing, and location factors, HomeTruth provides valuable insights directly on the listing pages you browse. This guide will help you get started.
+## Premium Features
 
-### 1. Installation
+Upgrade to HomeTruth Premium for advanced insights:
 
-#### Chrome:
+- Detailed property reports with comprehensive information
+- Unlimited saved properties
+- Complete price history and sales data
+- Environmental risk assessments (subsidence, flooding, pollution)
+- School catchment area visualizations
+- Planning permission history and development potential
+- Leasehold analysis and extension cost estimates
+- Personalized property alerts
+- Premium customer support
 
-1. Go to the Chrome Web Store and search for "HomeTruth".
-2. Click the "Add to Chrome" button.
-3. Confirm by clicking "Add extension" in the pop-up.
-4. (Recommended) Click the puzzle piece icon (Extensions) in your Chrome toolbar and click the pin icon next to HomeTruth to keep it visible.
+## Using HomeTruth
 
-#### Edge:
+### Property Browsing
 
-1. Go to the Microsoft Edge Add-ons store and search for "HomeTruth".
-2. Click the "Get" button.
-3. Confirm by clicking "Add extension".
+1. Visit any supported UK property website
+2. HomeTruth will automatically activate and show the Trust Score
+3. Click the HomeTruth icon on the listing to open the full insights panel
+4. Browse through categories to see detailed information
 
-### 2. How to Use HomeTruth
+### Saving Properties
 
-Using HomeTruth is designed to be simple:
+1. Click the "Save" button on any property
+2. Add tags or notes to organize your search
+3. Access your saved properties from your HomeTruth dashboard
 
-1. **Browse as Usual**: Navigate to a property listing page on a supported website (e.g., Zillow.com, Redfin.com, Realtor.com, Trulia.com).
-2. **Automatic Analysis**: HomeTruth will automatically detect you're on a listing page and begin its analysis. You might see a small HomeTruth loading indicator appear briefly.
-3. **View Insights**: Once the analysis is complete (usually takes a few seconds), the HomeTruth panel or overlay will appear on the page. This panel contains the insights gathered about the listing.
-4. **Explore the Sections**: The HomeTruth panel is typically organized into sections like:
-   - **Summary**: An overview, often including a "Trust Score," key highlights, and major red flags detected.
-   - **Fact Check**: Details on claims made in the property description and HomeTruth's assessment of their validity (e.g., "True," "Misleading," "Unverifiable").
-   - **Photo Analysis**: Notes on detected photography techniques (e.g., "Wide-angle lens detected," "Potential virtual staging").
-   - **Price Analysis**: Information on the property's price history, comparison to estimated fair market value, and details on comparable properties (comps).
-   - **Location Analysis**: Scores and details regarding local amenities (shopping, transit, schools) and potential risks (flood, crime, noise).
+### Creating Alerts
 
-### 3. Understanding the Analysis
+1. Set up search criteria for properties you're interested in
+2. Specify your alert preferences (daily, weekly, etc.)
+3. Receive notifications when new properties match your criteria
 
-- **Trust Score**: A rating (e.g., 0-100) indicating the overall perceived transparency and reliability of the listing based on our analysis. Higher scores are better.
-- **Assessments**: Look for terms like "True," "Misleading," "False," or "Unverifiable" in the Fact Check section, along with explanations.
-- **Scores**: Location and risk factors are often presented as scores (e.g., 0-10). Pay attention to whether a high score is good (like amenities) or bad (like risk).
+### Using the Dashboard
 
-### 4. Account & Premium Features (If Applicable)
+Access your HomeTruth dashboard by clicking the extension icon and selecting "Dashboard" to:
 
-- You may be prompted to create a free HomeTruth account to save your analysis history or access certain features.
-- Premium subscription options might be available, offering enhanced analysis, more detailed data, or higher usage limits. You can manage your account and subscription through the HomeTruth User Portal (link usually provided in the extension or on the website).
+- View saved properties
+- Manage property comparisons
+- View and manage alerts
+- Access your account settings
+- Upgrade to Premium
 
-### 5. Troubleshooting
+## UK-Specific Features
 
-#### HomeTruth panel not appearing?
+### Leasehold vs Freehold
 
-- Ensure you are on a supported website's specific property listing page (not just the search results).
-- Try refreshing the page.
-- Check if the HomeTruth extension is enabled in your browser's extension settings.
+HomeTruth helps you understand the implications of leasehold properties:
 
-#### Analysis seems slow?
+- Remaining lease length and potential renewal costs
+- Ground rent and service charge details
+- Freeholder information where available
+- Lease extension cost estimates
 
-- The analysis involves complex AI processing and data fetching, which can take a few moments, especially on the first visit to a listing.
+### Council Tax
 
-#### Incorrect analysis?
+View Council Tax information for properties:
 
-- AI and data analysis are powerful but not perfect. If you believe something is wrong, look for a feedback option within the extension or contact support.
+- Council Tax band
+- Estimated annual cost
+- Local authority details
+- Historical Council Tax increases in the area
 
-### 6. Need Help?
+### Stamp Duty Calculator
 
-If you have questions or encounter issues, please visit our support page [Link to Support/FAQ Page] or contact us at [Support Email Address].
+Calculate your Stamp Duty Land Tax based on:
 
-Thank you for using HomeTruth! We hope it empowers you to make smarter, more confident real estate decisions.
+- Current SDLT rates for England and Northern Ireland
+- Land Transaction Tax rates for Wales
+- Land and Buildings Transaction Tax for Scotland
+- First-time buyer relief options
+- Additional dwelling surcharges
+
+### UK-Specific Environmental Risks
+
+- Flood risk from rivers, sea, and surface water (Environment Agency data)
+- Subsidence risk based on geological data
+- Coastal erosion risk for coastal properties
+- Radon gas levels in the area
+
+## Troubleshooting
+
+### Extension Not Working
+
+1. Ensure you're on a supported property website
+2. Check that the extension is enabled in Chrome
+3. Try refreshing the page
+4. Ensure you're logged into your HomeTruth account
+
+### Incorrect Data
+
+If you notice any inaccurate information:
+
+1. Click the "Report Issue" button on the property insights panel
+2. Specify the incorrect information
+3. Our team will investigate and correct the data
+
+### Technical Issues
+
+For technical support:
+
+- Visit our [Support Centre](https://hometruth.uk/support)
+- Email us at support@hometruth.uk
+- Use the in-app chat support (Premium users)
+
+## Privacy and Data Security
+
+HomeTruth takes your privacy seriously:
+
+- We never sell your personal data
+- Your saved properties and searches are private
+- We use industry-standard encryption
+- You can delete your account and data at any time
+
+## Contact and Support
+
+- Website: [hometruth.uk](https://hometruth.uk)
+- Email: support@hometruth.uk
+- Support hours: Monday-Friday, 9am-5pm GMT
