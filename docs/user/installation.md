@@ -141,10 +141,24 @@ If you need to uninstall HomeTruth:
 
 If you encounter any issues during installation:
 
-- Visit our [Support Centre](https://hometruth.uk/support)
-- Email us at [support@hometruth.uk](mailto:support@hometruth.uk)
+- Visit our [Support Centre](https://hometruth.io/support)
+- Email us at [support@hometruth.io](mailto:support@hometruth.io)
 - Premium users can access live chat support during UK business hours (9am-6pm GMT/BST, Monday-Friday)
 
 ---
 
 Thank you for installing HomeTruth! We're committed to helping you make better property decisions with transparent, data-driven insights.
+
+## Troubleshooting
+
+If you experience issues with installation or activation:
+
+1. Make sure your Chrome browser is updated to the latest version
+2. Try restarting your browser
+3. Disable any ad blockers or privacy extensions temporarily
+4. Check your internet connection
+
+For additional support:
+
+- Visit our [Support Centre](https://hometruth.io/support)
+- Email us at [support@hometruth.io](mailto:support@hometruth.io)

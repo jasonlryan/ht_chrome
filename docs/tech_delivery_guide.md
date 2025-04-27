@@ -210,21 +210,21 @@ If providing property valuation or mortgage-related advice:
 
 ### API Documentation [INCOMPLETE]
 
-Complete API documentation available at: `https://api.hometruth.uk/docs`
+Complete API documentation available at: `https://api.hometruth.io/docs`
 
 > **DEV NOTE**: API documentation referenced but not implemented or accessible.
 
 ### Monitoring Dashboard [INCOMPLETE]
 
-Main operations dashboard: `https://monitoring.hometruth.uk`
+Main operations dashboard: `https://monitoring.hometruth.io`
 
 > **DEV NOTE**: Dashboard referenced but not implemented.
 
 ### Emergency Contacts [COMPLETE]
 
-- Technical Director: tech@hometruth.uk
-- Operations Manager: ops@hometruth.uk
-- Security Officer: security@hometruth.uk
+- Technical Director: tech@hometruth.io
+- Operations Manager: ops@hometruth.io
+- Security Officer: security@hometruth.io
 
 ## OpenAI Integration Specification
 

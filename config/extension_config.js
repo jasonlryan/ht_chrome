@@ -19,7 +19,7 @@ const EXTENSION_CONFIG = {
 
   // API Configuration
   api: {
-    baseUrl: "https://api.hometruth.uk/v1",
+    baseUrl: "https://api.hometruth.io/v1",
     timeout: 30000, // ms
     retryAttempts: 3,
     cacheExpiry: 3600, // seconds

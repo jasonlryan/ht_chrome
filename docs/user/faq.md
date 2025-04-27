@@ -116,6 +116,8 @@ First, ensure you're on a supported website (Rightmove, Zoopla, OnTheMarket, or 
 
 Click the "Report Issue" button on any property insights panel, specify the incorrect information, and our team will investigate.
 
-### My question isn't answered here. How can I get help?
+## Support & Contact
 
-Contact our UK-based support team at support@hometruth.uk or visit our support centre at hometruth.uk/support. Premium users also have access to live chat support during business hours.
+### How do I get help if I have an issue?
+
+Contact our UK-based support team at support@hometruth.io or visit our support centre at hometruth.io/support. Premium users also have access to live chat support during business hours.

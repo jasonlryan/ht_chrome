@@ -168,8 +168,8 @@ If you notice any inaccurate information:
 
 For technical support:
 
-- Visit our [Support Centre](https://hometruth.uk/support)
-- Email us at support@hometruth.uk
+- Visit our [Support Centre](https://hometruth.io/support)
+- Email us at support@hometruth.io
 - Use the in-app chat support (Premium users)
 
 ## Privacy and Data Security
@@ -183,10 +183,31 @@ HomeTruth takes your privacy seriously:
 
 ## Contact and Support
 
-- Website: [hometruth.uk](https://hometruth.uk)
-- Email: support@hometruth.uk
+- Website: [hometruth.io](https://hometruth.io)
+- Email: support@hometruth.io
 - Support hours: Monday-Friday, 9am-5pm GMT
 
 ### How much does HomeTruth cost?
 
 HomeTruth offers a free tier with essential information and a Premium subscription for £4.99/month or £49.99/year, providing comprehensive property insights.
+
+## Support
+
+If you need assistance with HomeTruth:
+
+- Visit our [Support Centre](https://hometruth.io/support)
+- Email us at support@hometruth.io
+- Premium users can access live chat support during UK business hours
+
+## Terms & Policies
+
+Please review our:
+
+- [Terms of Service](https://hometruth.io/terms)
+- [Privacy Policy](https://hometruth.io/privacy)
+- [Cookie Policy](https://hometruth.io/cookies)
+
+## Company Information
+
+- Website: [hometruth.io](https://hometruth.io)
+- Email: support@hometruth.io

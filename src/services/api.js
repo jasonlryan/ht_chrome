@@ -10,8 +10,8 @@ class ApiService {
     // Base URLs for different environments
     this.baseUrls = {
       development: "http://localhost:8080/api",
-      staging: "https://staging-api.hometruth.uk/api",
-      production: "https://api.hometruth.uk/api",
+      staging: "https://staging-api.hometruth.io/api",
+      production: "https://api.hometruth.io/api",
     };
 
     // Default timeout in milliseconds

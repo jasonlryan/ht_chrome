@@ -70,10 +70,12 @@ Consider upgrading to HomeTruth Premium (£4.99/month or £49.99/year) for:
 
 ## Getting Help
 
-Need assistance?
+Need assistance with HomeTruth? Our UK-based support team is ready to help:
 
-- Email: [support@hometruth.uk](mailto:support@hometruth.uk)
-- Help Centre: [help.hometruth.uk](https://help.hometruth.uk)
-- FAQ: [hometruth.uk/faq](https://hometruth.uk/faq)
+- Email: [support@hometruth.io](mailto:support@hometruth.io)
+- Help Centre: [help.hometruth.io](https://help.hometruth.io)
+- FAQ: [hometruth.io/faq](https://hometruth.io/faq)
+
+Premium members have access to priority support and live chat during UK business hours.
 
 Welcome to smarter property searching with HomeTruth!

@@ -200,13 +200,13 @@ Ensure compliance with:
 - Consumer Rights Act 2015
 - Property Ombudsman requirements
 
-## Support Contacts
+## Team Contacts
 
-For development questions specific to UK integration:
+For technical questions or development-related issues, contact:
 
-- Technical Lead: tech@hometruth.uk
-- UK Data Specialist: ukdata@hometruth.uk
-- Regulatory Compliance: compliance@hometruth.uk
+- Technical Lead: tech@hometruth.io
+- UK Data Specialist: ukdata@hometruth.io
+- Regulatory Compliance: compliance@hometruth.io
 
 ## Documentation
 

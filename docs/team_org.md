@@ -182,15 +182,15 @@
 
 ### Technical Issues
 
-- Primary: CTO (cto@hometruth.uk)
-- Secondary: Lead Backend Engineer (backend@hometruth.uk)
+- Primary: CTO (cto@hometruth.io)
+- Secondary: Lead Backend Engineer (backend@hometruth.io)
 
 ### Business Issues
 
-- Primary: CEO (ceo@hometruth.uk)
-- Secondary: Head of UK Operations (operations@hometruth.uk)
+- Primary: CEO (ceo@hometruth.io)
+- Secondary: Head of UK Operations (operations@hometruth.io)
 
 ### User Support
 
-- Primary: Customer Support Lead (support@hometruth.uk)
-- Secondary: Product Manager (product@hometruth.uk)
+- Primary: Customer Support Lead (support@hometruth.io)
+- Secondary: Product Manager (product@hometruth.io)
