@@ -10,8 +10,8 @@ class ApiService {
     // Base URLs for different environments
     this.baseUrls = {
       development: "http://localhost:8080/api",
-      staging: "https://staging-api.hometruth.co.uk/api",
-      production: "https://api.hometruth.co.uk/api",
+      staging: "https://staging-api.hometruth.uk/api",
+      production: "https://api.hometruth.uk/api",
     };
 
     // Default timeout in milliseconds
@@ -248,12 +248,57 @@ class ApiService {
       return await this.post(mcpEndpoint, data, mcpConfig);
     } catch (error) {
       // Add MCP-specific context to error
-      errorMonitoringService.reportApiError(error, {
-        service: "mcp",
+      errorMonitoringService.reportMcpError(error, {
         endpoint,
         data,
       });
+      throw error;
+    }
+  }
 
+  /**
+   * Make POST request to MCP endpoint
+   * @param {string} endpoint - MCP endpoint
+   * @param {Object} data - Request payload
+   * @param {Object} config - Additional Axios config
+   * @returns {Promise} API response
+   */
+  async postMcp(endpoint, data = {}, config = {}) {
+    return this.mcpRequest(endpoint, data, config);
+  }
+
+  /**
+   * Make GET request to MCP endpoint
+   * @param {string} endpoint - MCP endpoint
+   * @param {Object} params - Query parameters
+   * @param {Object} config - Additional Axios config
+   * @returns {Promise} API response
+   */
+  async getMcp(endpoint, params = {}, config = {}) {
+    try {
+      // Add MCP-specific headers or configuration
+      const mcpConfig = {
+        ...config,
+        headers: {
+          ...config.headers,
+          "x-ht-client": "chrome-extension",
+          "x-ht-client-version": chrome.runtime.getManifest().version,
+        },
+        params,
+      };
+
+      // Use full MCP endpoint path
+      const mcpEndpoint = `/mcp${
+        endpoint.startsWith("/") ? endpoint : `/${endpoint}`
+      }`;
+
+      return await this.get(mcpEndpoint, {}, mcpConfig);
+    } catch (error) {
+      // Add MCP-specific context to error
+      errorMonitoringService.reportMcpError(error, {
+        endpoint,
+        params,
+      });
       throw error;
     }
   }

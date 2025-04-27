@@ -19,7 +19,7 @@ class McpService {
   /**
    * Initialize MCP extraction
    * @param {Object} params - Extraction parameters
-   * @param {String} params.portalType - Type of portal (e.g., 'whatsapp', 'facebook')
+   * @param {String} params.portalType - Type of portal (e.g., 'rightmove', 'zoopla')
    * @param {String} params.userId - User identifier
    * @param {Object} params.metadata - Additional metadata for extraction
    * @returns {Promise<Object>} Extraction response with session ID
@@ -168,92 +168,9 @@ class McpService {
   }
 
   /**
-   * Get WhatsApp messages for a specific chat
-   * @param {String} sessionId - Extraction session ID
-   * @param {String} chatId - Chat identifier
-   * @param {Object} options - Query options
-   * @returns {Promise<Object>} Messages data
-   */
-  async getWhatsAppMessages(sessionId, chatId, options = {}) {
-    try {
-      const response = await this.apiService.getMcp(
-        `/whatsapp/messages/${chatId}`,
-        {
-          params: {
-            sessionId,
-            limit: options.limit || 100,
-            offset: options.offset || 0,
-            startDate: options.startDate,
-            endDate: options.endDate,
-          },
-        }
-      );
-      return response.data;
-    } catch (error) {
-      errorMonitoringService.reportMcpError(error, {
-        operation: "getWhatsAppMessages",
-        sessionId,
-        chatId,
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Get WhatsApp chats list
-   * @param {String} sessionId - Extraction session ID
-   * @param {Object} options - Query options
-   * @returns {Promise<Object>} Chats data
-   */
-  async getWhatsAppChats(sessionId, options = {}) {
-    try {
-      const response = await this.apiService.getMcp("/whatsapp/chats", {
-        params: {
-          sessionId,
-          limit: options.limit || 100,
-          offset: options.offset || 0,
-        },
-      });
-      return response.data;
-    } catch (error) {
-      errorMonitoringService.reportMcpError(error, {
-        operation: "getWhatsAppChats",
-        sessionId,
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Get WhatsApp contacts
-   * @param {String} sessionId - Extraction session ID
-   * @param {Object} options - Query options
-   * @returns {Promise<Object>} Contacts data
-   */
-  async getWhatsAppContacts(sessionId, options = {}) {
-    try {
-      const response = await this.apiService.getMcp("/whatsapp/contacts", {
-        params: {
-          sessionId,
-          limit: options.limit || 100,
-          offset: options.offset || 0,
-          query: options.query || "",
-        },
-      });
-      return response.data;
-    } catch (error) {
-      errorMonitoringService.reportMcpError(error, {
-        operation: "getWhatsAppContacts",
-        sessionId,
-      });
-      throw error;
-    }
-  }
-
-  /**
    * Get user consent status
    * @param {String} userId - User identifier
-   * @returns {Promise<Object>} User consent data
+   * @returns {Promise<Object>} Consent status
    */
   async getUserConsentStatus(userId) {
     try {
@@ -269,9 +186,9 @@ class McpService {
   }
 
   /**
-   * Update user consent
+   * Update user consent preferences
    * @param {String} userId - User identifier
-   * @param {Object} consentData - Consent information
+   * @param {Object} consentData - Consent preferences
    * @returns {Promise<Object>} Updated consent data
    */
   async updateUserConsent(userId, consentData) {
@@ -291,7 +208,7 @@ class McpService {
   }
 
   /**
-   * Check MCP service health
+   * Check API health
    * @returns {Promise<Object>} Health status
    */
   async checkHealth() {
@@ -302,16 +219,11 @@ class McpService {
       errorMonitoringService.reportMcpError(error, {
         operation: "checkHealth",
       });
-      // Return a structured error response rather than throwing
-      return {
-        status: "error",
-        message: error.message,
-        timestamp: new Date().toISOString(),
-      };
+      throw error;
     }
   }
 }
 
-// Export singleton instance
+// Singleton pattern
 const mcpService = new McpService();
 export default mcpService;

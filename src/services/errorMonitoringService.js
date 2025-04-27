@@ -31,19 +31,23 @@ class ErrorMonitoringService {
   }
 
   /**
-   * Initialize Sentry with environment-specific configuration
+   * Initialize Sentry SDK if available
    */
-  initialize() {
-    if (this.initialized) return;
+  async initializeSentry() {
+    if (!this.config.enabled || !this.config.sentryDsn) {
+      console.warn("[ErrorMonitoring] Sentry integration disabled");
+      return;
+    }
 
-    // Only initialize in production or if specifically enabled in development
-    if (this.environment === "production" || this.enabledInDev) {
+    try {
+      // Initialize Sentry with configuration
       Sentry.init({
         dsn: this.config.sentryDsn,
-        integrations: [new BrowserTracing()],
-        tracesSampleRate: 0.2,
         environment: this.environment,
-        beforeSend: (event) => this.beforeSendHandler(event),
+        release: `hometruth-extension@${this.config.version}`,
+        tracesSampleRate: 0.1, // Adjust as needed
+        beforeSend: (event) => this.filterSensitiveData(event),
+        integrations: [new BrowserTracing()],
         // UK region specific configuration
         defaultIntegrations: true,
         allowUrls: [
@@ -56,36 +60,6 @@ class ErrorMonitoringService {
       });
 
       this.initialized = true;
-      console.log(
-        `Error monitoring initialized in ${this.environment} environment`
-      );
-    }
-  }
-
-  /**
-   * Initialize Sentry SDK if available
-   */
-  async initializeSentry() {
-    if (!this.config.enabled || !this.config.sentryDsn) {
-      console.warn("[ErrorMonitoring] Sentry integration disabled");
-      return;
-    }
-
-    try {
-      // Dynamic import of Sentry SDK
-      const Sentry = await import("@sentry/browser");
-
-      // Initialize Sentry with configuration
-      Sentry.init({
-        dsn: this.config.sentryDsn,
-        environment: this.environment,
-        release: `hometruth-extension@${this.config.version}`,
-        tracesSampleRate: 0.1, // Adjust as needed
-        beforeSend: (event) => this.filterSensitiveData(event),
-      });
-
-      this.sentry = Sentry;
-
       console.log("[ErrorMonitoring] Sentry initialized successfully");
     } catch (error) {
       console.error("[ErrorMonitoring] Failed to initialize Sentry:", error);
@@ -224,7 +198,7 @@ class ErrorMonitoringService {
    * @param {Object} context - Additional context data
    */
   captureError(error, context = {}) {
-    if (!this.initialized) this.initialize();
+    if (!this.initialized) this.initializeSentry();
 
     if (this.initialized) {
       Sentry.withScope((scope) => {
@@ -262,7 +236,7 @@ class ErrorMonitoringService {
    * @param {string} level - Severity level (info, warning, error)
    */
   captureMessage(message, context = {}, level = "info") {
-    if (!this.initialized) this.initialize();
+    if (!this.initialized) this.initializeSentry();
 
     if (this.initialized) {
       Sentry.withScope((scope) => {
@@ -294,7 +268,7 @@ class ErrorMonitoringService {
    * @param {string} userId - Anonymous user identifier
    */
   setUser(userId) {
-    if (!this.initialized) this.initialize();
+    if (!this.initialized) this.initializeSentry();
 
     if (this.initialized && userId) {
       Sentry.setUser({ id: userId });
@@ -329,22 +303,32 @@ class ErrorMonitoringService {
    * @param {Object} context - API request context
    */
   reportApiError(error, context) {
-    this.captureError(error, {
-      ...context,
-      category: "api_error",
-    });
+    return this.reportError(error, context, "error", "api");
   }
 
   /**
-   * Report UI errors with additional context
-   * @param {Error} error - Error object
-   * @param {Object} context - UI context
+   * Report MCP-related errors
+   * @param {Error} error - The error object
+   * @param {Object} context - Error context
+   * @returns {String} Error ID
+   */
+  reportMcpError(error, context) {
+    return this.reportError(
+      error,
+      { ...context, service: "mcp" },
+      "error",
+      "mcp"
+    );
+  }
+
+  /**
+   * Report UI-related errors
+   * @param {Error} error - The error object
+   * @param {Object} context - Error context
+   * @returns {String} Error ID
    */
   reportUiError(error, context) {
-    this.captureError(error, {
-      ...context,
-      category: "ui_error",
-    });
+    return this.reportError(error, context, "error", "ui");
   }
 
   /**

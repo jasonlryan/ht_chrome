@@ -226,6 +226,100 @@ Main operations dashboard: `https://monitoring.hometruth.uk`
 - Operations Manager: ops@hometruth.uk
 - Security Officer: security@hometruth.uk
 
+## OpenAI Integration Specification
+
+Goal: Turn raw MCP property data into Fact-check, Photo, Price, Location insights + Trust Score within < 3 seconds P95.
+
+### Service Architecture
+
+| Component          | Scope                                                                                    | Tech                   | Repo / path                        |
+| ------------------ | ---------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------- |
+| OpenAIOrchestrator | Single entry point called by /api/ask                                                    | Node 18 + TypeScript   | backend/src/openai/orchestrator.ts |
+| Prompt builder     | Deterministic prompt templates per insight                                               | EJS or string-literals | backend/src/openai/prompts/        |
+| Function registry  | Maps OpenAI function-calling to internal utils: fetch_comparables, get_crime_stats, etc. | JSON Schema + zod      | backend/src/openai/functions.ts    |
+| Cache              | 24h LRU keyed by {portalId, versionHash}                                                 | Redis                  | redis://…                          |
+| Streaming gateway  | SSE → Service Worker → content script                                                    | express-sse            | /api/ask route                     |
+
+### Environment Configuration
+
+```
+OPENAI_API_KEY = sk-…
+OPENAI_MODEL = gpt-4o-mini # initial – switchable
+OPENAI_TEMPERATURE = 0.2
+OPENAI_QPM_LIMIT = 60
+CACHE_TTL_SECONDS = 86400
+```
+
+### API Interfaces
+
+```typescript
+export interface OpenAIRequest {
+  listing: StandardisedProperty; // output of PortalExtractorService
+  userContext?: { id: string; isPremium: boolean };
+}
+
+export interface OpenAIResponse {
+  trustScore: number; // 0-100
+  factCheck: FactCheckSection;
+  photoAnalysis: PhotoSection;
+  priceAnalysis: PriceSection;
+  locationAnalysis: LocationSection;
+  rawModelAnswer?: string; // kept 24h for audit
+}
+```
+
+### Orchestrator Implementation
+
+```typescript
+async function analyse(req: OpenAIRequest): Promise<OpenAIResponse> {
+  const cacheKey = hash(req.listing.id + OPENAI_MODEL);
+  if (await redis.exists(cacheKey)) return redis.get(cacheKey);
+
+  const { messages, functions } = buildPrompt(req);
+  const stream = await openai.chat.completions.create({
+    model: process.env.OPENAI_MODEL,
+    temperature: +process.env.OPENAI_TEMPERATURE,
+    stream: true,
+    messages,
+    functions,
+  });
+
+  const parsed = await parseStream(stream); // handles fn calls
+  await redis.set(cacheKey, parsed, "EX", CACHE_TTL);
+  return parsed;
+}
+```
+
+### Prompt Structure
+
+```yaml
+system: You are HomeTruth AI. Return JSON that conforms to the supplied schema.
+
+user: <markdown-table with key property facts>
+
+assistant (function_call):
+  name: compute_trust_score
+  arguments: { … }
+# Tool functions resolve and return JSON payloads that go back into the chat.
+```
+
+### Error Handling
+
+- HTTP 429 or context-length > 128k → fall back to gpt-3.5-turbo with summarised prompt
+- Record openai_retry_count and openai_latency_ms in Sentry breadcrumbs for each request
+
+### CI/CD Integration
+
+- GitHub Action runs npm run openai:test which hits OpenAI with tiny mock listing
+- Validates schema integrity and fails pull-requests if JSON doesn't match zod schema
+
+### Compliance Requirements
+
+- Add a disclaimer to user-facing docs explaining AI-generated content limitations
+- Ensure fallback mechanisms when OpenAI is unavailable
+- Document latency and cost budgets
+- Maintain explicit schema contract between property extractor and AI
+
 ## Development Priorities
 
 Based on the current implementation status, here are the priorities for completing the HomeTruth extension:
