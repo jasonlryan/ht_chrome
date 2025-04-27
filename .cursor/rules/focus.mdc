@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor Guidelines: Focus on the Requested Task
+
+## Core Principle
+When working with Cursor AI, always focus on delivering exactly what was requested - nothing more, nothing less.
+
+## Key Rules
+
+1. **Implement Only What Was Requested**
+   - Do not add features or functionality that were not explicitly requested
+   - When in doubt about scope, ask for clarification first
+   - Avoid the temptation to "improve" beyond the stated requirements
+
+2. **Seek Confirmation Before Extending**
+   - If you believe additional functionality would be beneficial, ask first
+   - Present options rather than making decisions unilaterally
+   - Example: "Would you like me to also implement X? It might help with Y."
+
+3. **Prioritize Completion Over Enhancement**
+   - Complete the requested task fully before suggesting enhancements
+   - Focus on quality implementation of core requirements
+   - Ensure the primary functionality works perfectly
+
+4. **Provide Clear Communication**
+   - Explain what you've implemented in relation to what was requested
+   - Highlight any constraints or limitations you've encountered
+   - Be transparent about what has and hasn't been completed
+
+5. **Respect Resource Constraints**
+   - Be mindful of creating unnecessary files or bloating the codebase
+   - One file is better than two when one meets the requirements
+   - Avoid duplicating functionality across multiple implementations
+
+## Examples
+
+### Poor Approach:
+- Request: "Create a script to push changes to GitHub"
+- Response: *Creates two different scripts with varying functionality without asking*
+
+### Better Approach:
+- Request: "Create a script to push changes to GitHub"
+- Response: "Here's the script you requested. Would you also like an alternative version with force push capabilities?"
+
+### Best Approach:
+- Request: "Create a script to push changes to GitHub"
+- Response: *Creates exactly one script that meets the requirements*
+- Follow-up: "Is there any specific functionality you'd like me to add to this script?"
+
+## Remember
+The goal is to provide exactly what the user needs without creating additional cognitive load or unnecessary artifacts. When in doubt, do less but do it perfectly.
+

@@ -1,0 +1,53 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Git Workflow Guidelines: Let the User Control Version Control
+
+## Core Principle
+Never prompt to commit or push changes to GitHub unless explicitly requested. The user controls when and how to push to the repository.
+
+## Key Rules
+
+1. **Do Not Suggest Git Operations Unprompted**
+   - Never suggest committing, pushing, or any git operations after making changes
+   - Do not include git commands in your responses unless specifically asked
+   - Avoid ending responses with "Would you like me to commit these changes?"
+
+2. **User Initiates All Git Operations**
+   - Wait for explicit instructions before performing any git operations
+   - The user will decide when code is ready to be committed
+   - Do not assume changes are ready for version control
+
+3. **Use the Provided Script When Instructed**
+   - When the user says "push to git" or similar, use the push-to-github.sh script
+   - Do not create alternative git commands or scripts
+   - Execute: `./scripts/push-to-github.sh` when instructed to push
+
+4. **Maintain Focus on Implementation**
+   - Keep focus on implementing the requested functionality
+   - Do not divert attention to version control workflows
+   - Prioritize code quality over repository management
+
+5. **Respect User's Workflow**
+   - Different users have different commit patterns and preferences
+   - Some may commit frequently, others only when features are complete
+   - Never impose a specific git workflow or best practice
+
+## Examples
+
+### Incorrect Approach:
+- User: "Create a function to parse JSON"
+- Assistant: *Creates the function*
+- Assistant: "Would you like me to commit and push these changes now?"
+
+### Correct Approach:
+- User: "Create a function to parse JSON"
+- Assistant: *Creates the function*
+- Assistant: *Does not mention git operations*
+- User: "push to git"
+- Assistant: *Uses the push-to-github.sh script*
+
+## Remember
+Git operations are solely the user's decision. Your role is to implement requested code changes, not to manage the repository. When instructed to push, use the provided script without deviation.
