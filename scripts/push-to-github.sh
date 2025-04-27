@@ -15,6 +15,52 @@ echo -e "${BLUE}=====================================${NC}"
 echo -e "${BLUE}  HOMETRUTH GITHUB PUSH SCRIPT      ${NC}"
 echo -e "${BLUE}=====================================${NC}"
 
+# Function to find and change to ht_chrome directory
+find_repo_dir() {
+  # First check if we're already in ht_chrome
+  if [ "$(basename "$(pwd)")" = "ht_chrome" ]; then
+    echo -e "${GREEN}Already in ht_chrome directory.${NC}"
+    return 0
+  fi
+  
+  # Check if we're in a subdirectory of ht_chrome
+  local current_dir="$(pwd)"
+  local parent_dir="$(dirname "$current_dir")"
+  
+  while [ "$current_dir" != "/" ]; do
+    if [ "$(basename "$current_dir")" = "ht_chrome" ]; then
+      echo -e "${YELLOW}In subdirectory of ht_chrome, changing to ht_chrome root.${NC}"
+      cd "$current_dir" || exit 1
+      return 0
+    fi
+    current_dir="$parent_dir"
+    parent_dir="$(dirname "$current_dir")"
+  done
+  
+  # Check if ht_chrome is in the current directory
+  if [ -d "./ht_chrome" ]; then
+    echo -e "${YELLOW}Found ht_chrome directory, changing to it.${NC}"
+    cd ./ht_chrome || exit 1
+    return 0
+  fi
+  
+  # Check if ht_chrome is in the parent directory
+  if [ -d "../ht_chrome" ]; then
+    echo -e "${YELLOW}Found ht_chrome in parent directory, changing to it.${NC}"
+    cd ../ht_chrome || exit 1
+    return 0
+  fi
+  
+  # Could not find ht_chrome
+  echo -e "${RED}Could not find ht_chrome directory. Please run this script from the ht_chrome directory or its parent.${NC}"
+  exit 1
+}
+
+# Always make sure we're in the ht_chrome directory
+find_repo_dir
+
+echo -e "${GREEN}Running in directory: $(pwd)${NC}"
+
 # Function to check command success
 check_success() {
   if [ $? -eq 0 ]; then
@@ -25,6 +71,18 @@ check_success() {
     exit 1
   fi
 }
+
+# Make sure we're in a git repository
+if [ ! -d ".git" ]; then
+  echo -e "${RED}Error: Not in a git repository.${NC}"
+  exit 1
+fi
+
+# Verify we have a remote named origin
+if ! git remote | grep -q "^origin$"; then
+  echo -e "${RED}Error: No remote named 'origin' found.${NC}"
+  exit 1
+fi
 
 # Get current branch
 CURRENT_BRANCH=$(git branch --show-current)
